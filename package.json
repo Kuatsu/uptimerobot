@@ -40,10 +40,17 @@
     "access": "public"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^18.7.18",
+    "@types/node-fetch": "^2.6.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
     "semantic-release": "^19.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.10"
   }
 }
