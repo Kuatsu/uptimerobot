@@ -1,4 +1,5 @@
 import { dependencies } from './dependencies';
+import { ApiError } from './error';
 import { IAccountDetailsModel, IBaseResponse } from './interfaces';
 import { UrlBuilder } from './url_builder';
 
@@ -19,7 +20,7 @@ export class UptimeRobotClient {
     this.urlBuilder = new UrlBuilder(baseUrl);
   }
 
-  async request<ResponseBody>(url: string | URL, data: Record<string, any> = {}, options: RequestInit = {}) {
+  private async request<ResponseBody>(url: string | URL, data: Record<string, any> = {}, options: RequestInit = {}) {
     const dataWithApiKey: Record<string, any> = {
       api_key: this.config.apiKey,
       format: 'json',
@@ -52,21 +53,23 @@ export class UptimeRobotClient {
     }
 
     if (body?.error !== undefined) {
-      error = new Error();
-      Object.assign(error, body.error);
+      error = new ApiError(body.error.message, body);
 
       throw error;
     }
     if (response.ok === false || error) {
       const message = error?.message ?? body?.error?.message;
 
-      // TODO: custom error with some data from response
-      throw new Error(message);
+      throw new ApiError(message, body);
     }
 
     return body as IBaseResponse & Partial<ResponseBody>;
   }
 
+  /**
+   * Account details (max number of monitors that can be added and number of up/down/paused monitors) can be grabbed using this method.
+   * @see https://uptimerobot.com/#getAccountDetailsWrap
+   */
   async getAccountDetails() {
     const url = this.urlBuilder.getAccountDetailsUrl();
 
