@@ -11,4 +11,8 @@ export class UrlBuilder {
   public getAccountDetailsUrl() {
     return this.buildUrl('/getAccountDetails');
   }
+
+  public getMonitorsUrl() {
+    return this.buildUrl('/getMonitors');
+  }
 }

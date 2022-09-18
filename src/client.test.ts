@@ -20,3 +20,14 @@ test('get account details', async () => {
   expect(response.account).toBeDefined();
   expect(response.account?.monitor_limit).toBeGreaterThan(0);
 });
+
+test('get monitors', async () => {
+  const response = await uptimeRobotClient.getMonitors();
+
+  console.log(response);
+
+  expect(response.stat).toBe('ok');
+  expect(response.monitors).toBeDefined();
+  expect(response.monitors?.length).toBeGreaterThan(0);
+  expect(response.monitors?.[0].id).toBeDefined();
+});

@@ -1,6 +1,6 @@
 import { dependencies } from './dependencies';
 import { ApiError } from './error';
-import { IAccountDetailsModel, IBaseResponse } from './interfaces';
+import { IGetAccountDetailsResponse, IBaseResponse, IGetMonitorsResponse } from './interfaces';
 import { UrlBuilder } from './url_builder';
 
 export type ClientConfig = {
@@ -63,16 +63,26 @@ export class UptimeRobotClient {
       throw new ApiError(message, body);
     }
 
-    return body as IBaseResponse & Partial<ResponseBody>;
+    return body as ResponseBody;
   }
 
   /**
-   * Account details (max number of monitors that can be added and number of up/down/paused monitors) can be grabbed using this method.
+   * Gets the account details of the user.
    * @see https://uptimerobot.com/#getAccountDetailsWrap
    */
   async getAccountDetails() {
     const url = this.urlBuilder.getAccountDetailsUrl();
 
-    return this.request<IAccountDetailsModel>(url);
+    return this.request<IGetAccountDetailsResponse>(url);
+  }
+
+  // TODO: add optional parameters to getMonitors
+  /**
+   * Gets a list of all monitors.
+   */
+  async getMonitors() {
+    const url = this.urlBuilder.getMonitorsUrl();
+
+    return this.request<IGetMonitorsResponse>(url);
   }
 }
