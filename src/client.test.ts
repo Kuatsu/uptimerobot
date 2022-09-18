@@ -36,13 +36,7 @@ test('get account details', async () => {
   const response = await uptimeRobotClient.getAccountDetails();
 
   expect(response.stat).toBe('ok');
-  expect(response.account).toBeDefined();
-  expect(response.account?.email).toBeDefined();
-  expect(response.account?.monitor_limit).toBeDefined();
-  expect(response.account?.monitor_interval).toBeDefined();
-  expect(response.account?.up_monitors).toBeDefined();
-  expect(response.account?.down_monitors).toBeDefined();
-  expect(response.account?.paused_monitors).toBeDefined();
+  assertAccountDetails(response);
 });
 
 test('get monitors', async () => {
@@ -51,12 +45,26 @@ test('get monitors', async () => {
   expect(response.stat).toBe('ok');
   expect(response.monitors).toBeDefined();
   expect(response.monitors?.length).toBeGreaterThan(0);
-  expect(response.monitors?.[0].id).toBeDefined();
-  expect(response.monitors?.[0].friendly_name).toBeDefined();
-  expect(response.monitors?.[0].url).toBeDefined();
-  expect(response.monitors?.[0].type).toBeDefined();
-  expect(response.monitors?.[0].sub_type).toBeDefined();
-  expect(response.monitors?.[0].keyword_type).toBeDefined();
-  expect(response.monitors?.[0].keyword_case_type).toBeDefined();
-  expect(response.monitors?.[0].keyword_value).toBeDefined();
+  assertMonitor(response.monitors?.[0]);
 });
+
+function assertAccountDetails(data: any) {
+  expect(data.account).toBeDefined();
+  expect(data.account?.email).toBeDefined();
+  expect(data.account?.monitor_limit).toBeDefined();
+  expect(data.account?.monitor_interval).toBeDefined();
+  expect(data.account?.up_monitors).toBeDefined();
+  expect(data.account?.down_monitors).toBeDefined();
+  expect(data.account?.paused_monitors).toBeDefined();
+}
+
+function assertMonitor(data: any) {
+  expect(data.id).toBeDefined();
+  expect(data.friendly_name).toBeDefined();
+  expect(data.url).toBeDefined();
+  expect(data.type).toBeDefined();
+  expect(data.sub_type).toBeDefined();
+  expect(data.keyword_type).toBeDefined();
+  expect(data.keyword_case_type).toBeDefined();
+  expect(data.keyword_value).toBeDefined();
+}
