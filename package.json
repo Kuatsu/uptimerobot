@@ -1,8 +1,27 @@
 {
   "name": "@kuatsu/uptimerobot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.0-semantically-released",
+  "description": "🤖 Unofficial JavaScript API wrapper for uptimerobot.com",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuatsu/uptimerobot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kuatsu/uptimerobot/issues"
+  },
+  "homepage": "https://github.com/kuatsu/uptimerobot#readme",
+  "keywords": [
+    "uptimerobot",
+    "uptime",
+    "api"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
