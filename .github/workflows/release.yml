@@ -1,9 +1,10 @@
 name: Build & release 🚀
 on:
-  push:
-    branches:
-      - master
-      - beta
+  workflow_dispatch
+  #push:
+  #  branches:
+  #    - master
+  #    - beta
 jobs:
   test:
     runs-on: ubuntu-latest
