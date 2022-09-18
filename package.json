@@ -28,8 +28,10 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "test:ci": "run-p test:suite:ci test:format test:tsc",
     "test": "run-p test:suite test:format test:tsc",
     "test:suite": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:suite:ci": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "test:lint": "eslint --max-warnings 0 --cache --ext js,jsx,cjs,mjs,ts,tsx .",
     "test:format": "prettier --check .",
     "test:tsc": "tsc --noEmit",
