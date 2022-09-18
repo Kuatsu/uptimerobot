@@ -27,7 +27,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: 🧪 Test
         run: |
-          echo $UPTIMEROBOT_TEST_API_TOKEN > .env
+          echo "UPTIMEROBOT_TEST_API_TOKEN=$UPTIMEROBOT_TEST_API_TOKEN" > .env
           npm run test
         env:
           CI: true
