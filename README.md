@@ -6,12 +6,10 @@
 
 [![Semantically released](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 [![Version on NPM](https://img.shields.io/npm/v/@kuatsu/uptimerobot?style=flat-square)](https://www.npmjs.com/package/@kuatsu/uptimerobot)
-[![Monthly downloads on NPM](https://img.shields.io/npm/dm/@kuatsu/uptimerobot?style=flat-square)](https://www.npmjs.com/package/@kuatsu/uptimerobot)<br />
-[![License](https://img.shields.io/npm/l/@kuatsu/uptimerobot?style=flat-square)](https://choosealicense.com/licenses/mit/)
+[![Monthly downloads on NPM](https://img.shields.io/codecov/c/gh/Kuatsu/uptimerobot?style=flat-square&token=Q0QSUTO20I)](https://www.codecov.io)<br />
+[![License](https://img.shields.io/codecov/c/github/Kuatsu/uptimerobot?flag=flag_name&token=a1b2c3d4e5&style=flat-square)](https://choosealicense.com/licenses/mit/)
 [![NPM Bundle size minified](https://img.shields.io/bundlephobia/min/@kuatsu/uptimerobot?style=flat-square)](https://bundlephobia.com/result?p=@kuatsu/uptimerobot)
 ![Written in TypeScript](https://img.shields.io/npm/types/@kuatsu/uptimerobot?style=flat-square)
-
-<br />
 
 ## Installation
 
